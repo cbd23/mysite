@@ -4,7 +4,10 @@
  * https://www.hlx.live/developer/block-collection/accordion
  */
 
-export default function decorate(block) {
+export default async function decorate(block) {
+
+
+
   [...block.children].forEach((row) => {
     // decorate accordion item label
     const label = row.children[0];
@@ -19,5 +22,24 @@ export default function decorate(block) {
     details.className = 'accordion-item';
     details.append(summary, body);
     row.replaceWith(details);
+
+    const newText = document.createElement('p')
+
+    summary.addEventListener('mouseover', () => {
+      newText.innerText = summary.hasAttribute('open') ? 'Open' : 'Closed'
+
+      summary.appendChild(newText)      
+    })
+
+    summary.addEventListener('mouseout', () => {
+      
+      summary.removeChild(newText)
+    })
+
   });
+
+    const res = await fetch("/data.json")
+    const data = await res.json()
+
+    console.log(data)
 }

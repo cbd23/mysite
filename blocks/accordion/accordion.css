@@ -59,3 +59,23 @@
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
 }
+
+.accordion-item-label {
+  border: 2px solid fuchsia;
+}
+
+.accordion-item-label:hover .show-text{
+  border: 4px solid fuchsia;
+}
+
+.accordion-item-body {
+  border: 2px solid greenyellow;
+}
+
+.accordion-item-body:hover {
+  border: 4px solid greenyellow;
+}
+
+.visible-text {
+  border: 2px solid red;
+}
