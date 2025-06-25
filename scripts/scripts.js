@@ -140,16 +140,16 @@ export async function loadTemplate(doc, templateName) {
     // Use Promise.all to load CSS and JS module concurrently
     await Promise.all([
       loadCSS(cssPath),
-      (async () => {
-        try {
-          const mod = await import(jsPath);
-          if (mod.default) {
-            await mod.default(doc);
-          }
-        } catch (error) {
-          console.error(`failed to load module for ${templateName}`, error);
-        }
-      })(),
+      // (async () => {
+      //   try {
+      //     const mod = await import(jsPath);
+      //     if (mod.default) {
+      //       await mod.default(doc);
+      //     }
+      //   } catch (error) {
+      //     console.error(`failed to load module for ${templateName}`, error);
+      //   }
+      // })(),
     ]);
     document.body.dataset.templateStatus = 'loaded';
   } catch (error) {
