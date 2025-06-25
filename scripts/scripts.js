@@ -135,7 +135,7 @@ export async function loadTemplate(doc, templateName) {
   }
   try {
     const cssPath = `${window.hlx.codeBasePath}/templates/${templateName}/${templateName}.css`;
-    const jsPath = `../templates/${templateName}/${templateName}.js`;
+    const jsPath = `${window.hlx.codeBasePath}/templates/${templateName}/${templateName}.js`;
     document.body.dataset.templateStatus = 'loading';
     // Use Promise.all to load CSS and JS module concurrently
     await Promise.all([
